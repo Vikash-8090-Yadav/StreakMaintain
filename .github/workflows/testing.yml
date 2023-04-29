@@ -2,7 +2,7 @@ name: Push File to Repo
 
 on:
   schedule:
-    - cron: '10 23 * * *'
+    - cron: '21 21 * * *'
 
 jobs:
   push-file:
@@ -11,9 +11,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Create file
-        run: echo "This is the text that will be pushed to the file." > "$(date +"%Y-%m-%d").txt"
+        run: echo "This is the text that will be pushed to the file." > "$("%Y-%m-%d").txt"
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "Add $(date +"%Y-%m-%d").txt"
-
+          commit_message: "Add $(%Y-%m-%d).txt"
