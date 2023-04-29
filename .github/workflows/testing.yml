@@ -2,7 +2,7 @@ name: Push File to Repo
 
 on:
   schedule:
-    - cron: '21 21 * * *'
+    - cron: '22 20 * * *'
 
 jobs:
   push-file:
