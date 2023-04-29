@@ -1,8 +1,7 @@
 name: Push File to Repo
 
 on:
-  schedule:
-    - cron: '22 21 * * *'
+  workflow_dispatch:
 
 jobs:
   push-file:
