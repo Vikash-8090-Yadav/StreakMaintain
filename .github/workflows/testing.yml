@@ -1,0 +1,19 @@
+name: Push File to Repo
+
+on:
+  schedule:
+    - cron: '10 23 * * *'
+
+jobs:
+  push-file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Create file
+        run: echo "This is the text that will be pushed to the file." > "$(date +"%Y-%m-%d").txt"
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Add $(date +"%Y-%m-%d").txt"
+
